@@ -42,24 +42,6 @@ st.set_page_config(
 )
 
 # Custom CSS for better styling
-st.markdown("""
-    <style>
-    .stTextInput > div > div > input {
-        background-color: #f0f2f6;
-    }
-    .stMarkdown {
-        font-family: 'Helvetica Neue', sans-serif;
-    }
-    .stChatMessage {
-        padding: 1rem;
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-    }
-    .stChatMessage[data-testid="stChatMessage"] {
-        background-color: #f0f2f6;
-    }
-    </style>
-    """, unsafe_allow_html=True)
 
 # Title and description
 st.title("🤖 Customer Support Agent")
@@ -122,7 +104,7 @@ with st.sidebar:
     st.markdown("""
     This customer support agent is powered by:
     - Langflow for Agentic orchestration
-    - OpenAI for natural language understanding
+    - IBM Watson for natural language understanding
     - Astra DB for knowledge storage and retrieval
     - Streamlit for the user interface
     """)
