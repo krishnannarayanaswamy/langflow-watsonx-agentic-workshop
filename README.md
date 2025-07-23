@@ -85,7 +85,7 @@ To make life easier, we'll use the awesome Github Codespace functionality. Githu
 
     ![codespace](./assets/codespaces.png)
 
-6. Now we can run Langflow as follows in the terminal window:
+6. Now we can run Langflow as follows in the terminal window.
 
     ```bash
     pip install uv
@@ -95,6 +95,33 @@ To make life easier, we'll use the awesome Github Codespace functionality. Githu
 
     This starts Langflow and opens a port to your Codespace in the cloud. In case you lose track of the URL to Langflow, just click on `PORTS` in the terminal window.
 
+    Monitor the terminal window and wait for the localhost. If Langflow started successfully it should look like below.
+
+    ```bash
+        ✓ Initializing Langflow...
+        ✓ Checking Environment...
+        ✓ Starting Core Services...
+        ✓ Connecting Database...
+        ✓ Loading Components...
+        ✓ Adding Starter Projects...
+        ✓ Launching Langflow...
+
+        ╭─────────────────────────────────────────────────────────────────────────╮
+        │                                                                         │
+        │  Welcome to Langflow                                                    │
+        │                                                                         │
+        │  🌟 GitHub: Star for updates → https://github.com/langflow-ai/langflow  │
+        │  💬 Discord: Join for support → https://discord.com/invite/EqksyE2EX9   │
+        │                                                                         │
+        │  We collect anonymous usage data to improve Langflow.                   │
+        │  To opt out, set: DO_NOT_TRACK=true in your environment.                │
+        │                                                                         │
+        │  🟢 Open Langflow → http://localhost:7860                               │
+        │                                                                         │
+        ╰─────────────────────────────────────────────────────────────────────────╯
+
+    ```
+
     ⚠️ Ensure you set the Port Visibility to Public, especially important for the MCP server part later on in this tutorial!
 
     ![public-port](./assets/public-port.png)
@@ -103,7 +130,7 @@ To make life easier, we'll use the awesome Github Codespace functionality. Githu
 
 ## 📦 Workshop follow-along
 
-### 0. 🧱 Make sure environment properties are added
+### 0. 🧱 Make sure environment properties are added as variables
 
 #### Steps:
 1. Open Langflow
@@ -144,6 +171,15 @@ Once configured they should look as below
 
 You'll see **watsonx.ai** answer your question nicely!
 
+Alternatively, you can import the prebuilt flow into Langflow [./flows/basic_chat_flow.json](./flows/basic_chat_flow.json))
+
+#### Steps:
+1. Navigate to [basic chat flow](https://github.com/krishnannarayanaswamy/langflow-watsonx-agentic-workshop/blob/main/flows/basic_chat_flow.json) and Download the flow to your local desktop.
+1. Click `+ Starter Project` on the top next to your flow name to go to Home Page or Project Page.
+2. On the left pane. Click on `Upload flow` button.
+3. Select the flow (json file) that you downloaded.
+4. If a flow with the same name already exists, langlfow will create another one.
+
 ### 2. 🧭 Familiarize yourself with Langflow
 **Goal:** Understand the main components of Langflow
 
@@ -167,10 +203,11 @@ Click the magnifying glass `🔍` in the `watsonx.ai` component. This shows you 
 
 #### Steps:
 1. Reproduce the above flow (or load it from [./flows/basic_agentic_ai.json](./flows/basic_agentic_ai.json))
-2. For watsonx.ai, ensure that the `API Endpoint`, `Project ID` and `API Key` have been set correctly. Also make sure the output is set to `Language Model`.
-3. Ensure the model is set to a chat-capable model, such as `meta/meta-llama-3-3-70b-instruct`
-4. When adding the `URL` and `Calculator` components to the canvas, select them and click `Tool mode`
-5. Connect all the components
+2. When you add the `Agent` component, make sure you click on `Model Provider` property to change to `Custom`.
+3.For watsonx.ai, ensure that the `API Endpoint`, `Project ID` and `API Key` have been set correctly. Also make sure the output is set to `Language Model`.
+4. Ensure the model is set to a chat-capable model, such as `meta/meta-llama-3-3-70b-instruct`
+5. When adding the `URL` and `Calculator` components to the canvas, select them and click `Tool mode`
+6. Connect all the components
 
 👏 Amazing! You just built your first AI Agent. Let's run it by clicking `▶️ Playground` and asking the question:
 
@@ -206,7 +243,7 @@ Extend your existing Basic Agentic AI flow with the following:
 8. Connect the embedding model component to AstraDB `Embedding model` section
 
 ![astra-rag-agent](./assets/astra-rag-agent.png)  
-For ease of use, this flow is also available here: [./flows/rag-agentic-ai.json](./flows/rag-agentic-ai.json).
+For ease of use, this flow is also available here: [./flows/rag-agentic-ai.json](./flows/rag_agentic_ai.json).
 
 
 #### 🚀 Now let's run the Agent in Langflow
@@ -264,7 +301,7 @@ Always aim to deliver clear, concise, and user-focused solutions to ensure the b
 ```
 
 ![customer-support-agent](./assets/customer-support-agent.png)  
-For ease of use, this flow is also available here: [./flows/customer-support-agent.json](./flows/customer-support-agent.json).
+For ease of use, this flow is also available here: [./flows/customer-support-agent.json](./flows/customer_support_flow.json).
 
 🥳 You did it! You now have an Agentic Flow with access to:
 - A company FAQ knowledgebase
@@ -311,6 +348,7 @@ Let's run it!
 
 ```bash
 pip install streamlit
+pip install dotenv
 streamlit run app.py
 ```
 
