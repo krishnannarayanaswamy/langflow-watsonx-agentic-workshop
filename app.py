@@ -8,11 +8,11 @@ load_dotenv()
 
 # Flow configuration
 API_KEY=os.getenv("LANGFLOW_API_KEY")
-FLOW_ID = os.getenv("LANGFLOW_FLOW_ID")
-FLOW_URL = f"http://localhost:7860/api/v1/run/{FLOW_ID}"
+#FLOW_ID = os.getenv("LANGFLOW_FLOW_ID")
+FLOW_URL = os.getenv("LANGFLOW_FLOW_ID")
 TWEAKS = {}
 
-def run_flow(message, endpoint=FLOW_ID, output_type="chat", input_type="chat", tweaks=None):
+def run_flow(message, endpoint=FLOW_URL, output_type="chat", input_type="chat", tweaks=None):
     """Run the Langflow flow with the given message."""
     payload = {
         "input_value": message,
@@ -78,7 +78,7 @@ if prompt := st.chat_input("How can I help you today?"):
             # Run the flow with the user's message
             response = run_flow(
                 message=prompt,
-                endpoint=FLOW_ID,
+                endpoint=FLOW_URL,
                 output_type="chat",
                 input_type="chat",
                 tweaks=TWEAKS

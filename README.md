@@ -328,7 +328,7 @@ In this step we'll create a simple Python app that runs the Langflow flow.
 1. Have a look at the app.py file. this is a frontent `Streamlit` application that will call the Langflow API to trigger our Customer support Agent we just created and tested in the `Playground`. 
 2. In Langflow exit the Playground and click on `Share` in the right top corner and then click `API Access`
 3. Click on `Python`
-4. Copy the UUID of the flow (for ex., `b32e8180-f3c8-465f-91b4-3d67efb68774`) and save it
+4. Copy the full URL of the flow (for ex., `https://ubiquitous-succotash-57v575g9jq6h7gqx-7860.app.github.dev/api/v1/run/d2846f80-1f3c-4994-8199-f833ef3cb858"`) and save it
 5. Open a new shell window where will will run this Streamlit applucation. Remmeber to keep the old window with langflow running.
 6. export the flow id variable that `app.py` uses as below
 ```env
